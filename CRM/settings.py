@@ -127,3 +127,15 @@ STATICFILES_DIRS = [
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+
+
+
+#SMTP Configuration
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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'
+DEFAULT_FROM_EMAIL = 'mariopleitez@gmail.com' # this is the sendgrid email
