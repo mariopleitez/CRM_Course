@@ -25,7 +25,10 @@ SECRET_KEY = 't@(=e3q6t2%&5j38&2^$gyqtyxjj@mzyazrtp$55@yhs240lw$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'learning-django-crm.herokuapp.com',
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -39,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
     'django_filters',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -75,12 +79,12 @@ WSGI_APPLICATION = 'CRM.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-#DATABASES = {
- #   'default': {
- #       'ENGINE': 'django.db.backends.sqlite3',
- #       'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
- #   }
-#} 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+} 
 
 
 #DATABASES = {
@@ -94,7 +98,7 @@ WSGI_APPLICATION = 'CRM.wsgi.application'
  #   }
 #}
 
-
+""" 
 
 DATABASES = {
     'default': {
@@ -105,7 +109,7 @@ DATABASES = {
         'HOST': 'database-1.cu0lniijbya0.us-east-1.rds.amazonaws.com',
         'POST': '5432'
     }
-}
+} """
 
 
 
@@ -165,3 +169,22 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'apikey'
 EMAIL_HOST_PASSWORD = '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'
 DEFAULT_FROM_EMAIL = 'mariopleitez@gmail.com' # this is the sendgrid email
+
+
+
+
+
+
+
+
+
+#S3 BUCKETS CONFIG
+
+AWS_ACCESS_KEY_ID = 'AKIA23VIWOGRQMTT744T'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'mpbuckets3'
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
